@@ -43,6 +43,10 @@
     color: #2c3e50;
   }
 
+  form label{
+    font-size: 12px;
+  }
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -88,23 +92,6 @@
     background-color: white;
     margin: 5px;
   }
-
-  .modal-footer{
-    justify-content: space-around !important;
-    border: none;
-  }
-
-  .modal-header{
-    justify-content: space-around !important;
-    border: none;
-  }
-  .modal-header h5{
-    font-weight: bold;
-  }
-  .modal-body{
-    text-align: center;
-  }
-
   
 
   @media screen and (max-width: 468px){
