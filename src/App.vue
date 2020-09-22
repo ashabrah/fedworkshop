@@ -73,7 +73,7 @@
 
   .nav-links{
     display: flex;
-    width: 20%;
+    width: 35%;
     justify-content: space-around;  
     margin-bottom: 0;
   }
@@ -87,20 +87,6 @@
     height: 3px;
     background-color: white;
     margin: 5px;
-  }
-
-  .modal-footer{
-    justify-content: space-around !important;
-  }
-
-  .modal-header{
-    justify-content: space-around !important;
-  }
-  .modal-header h5{
-    font-weight: bold;
-  }
-  .modal-body{
-    text-align: center;
   }
 
   @media screen and (max-width: 468px){
