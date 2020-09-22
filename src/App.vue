@@ -53,7 +53,7 @@
     
   }
 
-  nav a {
+  nav a, a:hover {
     color: white;
     text-decoration: none;
   }
@@ -73,7 +73,7 @@
 
   .nav-links{
     display: flex;
-    width: 20%;
+    width: 35%;
     justify-content: space-around;  
     margin-bottom: 0;
   }
@@ -91,10 +91,12 @@
 
   .modal-footer{
     justify-content: space-around !important;
+    border: none;
   }
 
   .modal-header{
     justify-content: space-around !important;
+    border: none;
   }
   .modal-header h5{
     font-weight: bold;
@@ -102,6 +104,8 @@
   .modal-body{
     text-align: center;
   }
+
+  
 
   @media screen and (max-width: 468px){
     body{
