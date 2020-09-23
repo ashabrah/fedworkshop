@@ -58,6 +58,13 @@ export default {
                         title: 'We read you load and clear',
                         okTitle: 'Take me home, country road'
                     })
+                    .then(value =>{
+                        //Redirect to Home 
+                        if(value) this.$router.push({ name: 'Home' });
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             }     
         }  
         catch(err){
