@@ -1,32 +1,130 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav>
+      <div class="logo"><router-link to="/"><b>Useless App</b></router-link></div>
+      <ul class="nav-links" :class="{'nav-active': showMenu}">
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/form">Contrived Form</router-link>
+        </li>
+      </ul>
+      <div class="hamburger" @click="showMenu = !showMenu" :class="{'toggle': showMenu}">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
     <router-view/>
   </div>
 </template>
-
+<script>
+  export default {
+    name: "App",
+    data: function () {
+      return {
+        showMenu: false
+      }
+    }
+  }
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
-#nav {
-  padding: 30px;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  #app {
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    background: #5555ee;
+    color: white;
+    
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+  nav li{
+    list-style: none;
+  }
+
+  .logo {
+    font-size: 25px;
+    flex: 3 1 auto;
+  }
+
+  .logo a{
+    color: white !important;
+  }
+
+  .nav-links{
+    display: flex;
+    width: 35%;
+    justify-content: space-around;  
+    margin-bottom: 0;
+  }
+
+  .hamburger{
+    display: none;
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+  }
+
+  @media screen and (max-width: 468px){
+    body{
+      overflow-x: hidden;
+    }
+    .nav-links{
+      position: absolute;
+      right: 0px;
+      top: 7vh;
+      height: 15vh;
+      background-color: #5555ee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform 0.25s ease-in;
+    }
+
+    .hamburger{
+      display: block;
+    }
+    .nav-active{
+      transform: translateX(0%);
+    }
+  }
+  .toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+  }
+  .toggle .line2{
+    opacity: 0;
+  }
+  .toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+  }
+
+  nav a.router-link-exact-active {
+    color: #d5dad8;
+  }
 </style>
