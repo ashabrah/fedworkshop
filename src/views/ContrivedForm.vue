@@ -9,19 +9,10 @@
         <b-form-input v-model="email" type="email"></b-form-input>
       </b-form-group>
       <b-form-group label="Message" label-for="message">
-        <b-form-textarea
-          id="message"
-          v-model="message"
-          rows="6"
-          max-rows="8"
-        ></b-form-textarea>
+        <b-form-textarea id="message" v-model="message" rows="6" max-rows="8"></b-form-textarea>
       </b-form-group>
       <div class="input-section">
-        <b-form-checkbox
-          id="delete-checkbox"
-          v-model="deleted"
-          name="delete-checkbox"
-        >
+        <b-form-checkbox id="delete-checkbox" v-model="deleted" name="delete-checkbox">
           Delete my account
         </b-form-checkbox>
       </div>
@@ -48,23 +39,26 @@ export default {
     submitForm(e){
         e.preventDefault();
         //TODO validate data
-        let req = {
+        let reqBody = {
             name: this.name,
             email: this.email,
             message: this.message,
             deleted: this.deleted
         }
-        this.sendData(req);
+        this.sendData(reqBody);
     },
-    async sendData(req){
+    async sendData(reqBody){
         //Call POST API with the form data and show modal on Success
         try{
-          const response = await axios.post('https://00dbbb1f-643b-43ed-be1e-ccfe0ab05b32.mock.pstmn.io/user', req);
-          if(response && response.data && response.data.success)
-            this.$bvModal.msgBoxOk('We received your message and will respond accordingly',{
-                title: 'We read you load and clear',
-                okTitle: 'Take me home, country road'
-            })
+            //Check if atleast name and email are entered before calling API
+            if(this.name && this.email){
+                const response = await axios.post('https://00dbbb1f-643b-43ed-be1e-ccfe0ab05b32.mock.pstmn.io/user', reqBody);
+                if(response && response.data && response.data.success)
+                    this.$bvModal.msgBoxOk('We received your message and will respond accordingly',{
+                        title: 'We read you load and clear',
+                        okTitle: 'Take me home, country road'
+                    })
+            }     
         }  
         catch(err){
             console.log(err);
