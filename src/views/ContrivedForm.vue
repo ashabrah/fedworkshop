@@ -33,19 +33,43 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'ContrivedForm',
   data(){
     return{
-      name: '',
-      email: '',
-      message: '',
-      deleted: false
+        name: '',
+        email: '',
+        message: '',
+        deleted: false
     }
   },
   methods: {
     submitForm(e){
-      e.preventDefault();
+        e.preventDefault();
+        //TODO validate data
+        let req = {
+            name: this.name,
+            email: this.email,
+            message: this.message,
+            deleted: this.deleted
+        }
+        this.sendData(req);
+    },
+    async sendData(req){
+        //Call POST API with the form data and show modal on Success
+        try{
+          const response = await axios.post('https://00dbbb1f-643b-43ed-be1e-ccfe0ab05b32.mock.pstmn.io/user', req);
+          if(response && response.data && response.data.success)
+            this.$bvModal.msgBoxOk('We received your message and will respond accordingly',{
+                title: 'We read you load and clear',
+                okTitle: 'Take me home, country road'
+            })
+        }  
+        catch(err){
+            console.log(err);
+        }
+      
     }
   }
 }

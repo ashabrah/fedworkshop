@@ -92,7 +92,23 @@
     background-color: white;
     margin: 5px;
   }
-  
+
+  .modal-footer{
+    justify-content: space-around !important;
+    border: none;
+  }
+
+  .modal-header{
+    justify-content: space-around !important;
+    border: none;
+  }
+  .modal-header h5{
+    font-weight: bold;
+  }
+  .modal-body{
+    text-align: center;
+    padding: 0;
+  }
 
   @media screen and (max-width: 468px){
     body{
@@ -108,15 +124,15 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      transform: translateX(100%);
-      transition: transform 0.25s ease-in;
+      transform: translateY(-150%);
+      /* transition: transform 0.25s ease-in; */
     }
 
     .hamburger{
       display: block;
     }
     .nav-active{
-      transform: translateX(0%);
+      transform: translateY(5%);
     }
   }
   .toggle .line1{
