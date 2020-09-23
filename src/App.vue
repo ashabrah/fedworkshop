@@ -43,6 +43,10 @@
     color: #2c3e50;
   }
 
+  form label{
+    font-size: 12px;
+  }
+
   nav {
     display: flex;
     justify-content: space-around;
@@ -53,7 +57,7 @@
     
   }
 
-  nav a {
+  nav a, a:hover {
     color: white;
     text-decoration: none;
   }
