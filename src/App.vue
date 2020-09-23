@@ -92,7 +92,6 @@
     background-color: white;
     margin: 5px;
   }
-  
 
   @media screen and (max-width: 468px){
     body{
