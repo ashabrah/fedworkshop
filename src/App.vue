@@ -109,6 +109,9 @@
     text-align: center;
     padding: 0;
   }
+  .delete-modal-footer{
+    justify-content: flex-end !important;
+  }
 
   @media screen and (max-width: 468px){
     body{
