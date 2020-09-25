@@ -70,6 +70,7 @@ export default {
                     title: 'Sure you want to delete your account?',
                     okVariant: 'danger',
                     okTitle: 'Delete',
+                    headerClass: 'delete-modal-header',
                     cancelTitle: 'Cancel',
                     footerClass: "delete-modal-footer"
                 })
