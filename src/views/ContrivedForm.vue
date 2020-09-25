@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-3">
+  <div class="container mt-3" @click="$emit('updateshowmenu', false)">
     <h3 class="title">Contrived Form</h3>
     <b-form @submit="submitForm">
       <b-form-group label="Name" label-for="name">
@@ -65,14 +65,36 @@ export default {
         this.formSubmitted = true;
         this.validateData();
         if(!this.checkErrors()){
-            let reqBody = {
-                name: this.name,
-                email: this.email,
-                message: this.message,
-                deleted: this.deleted
+            if(this.deleted){
+                this.$bvModal.msgBoxConfirm('This action cannot be undone. You will permanently lose all data.',{
+                    title: 'Sure you want to delete your account?',
+                    okVariant: 'danger',
+                    okTitle: 'Delete',
+                    cancelTitle: 'Cancel',
+                    footerClass: "delete-modal-footer"
+                })
+                .then(value => {
+                    if(value) 
+                        this.sendDataHelper()
+                })
+                .catch(err => {
+                    // An error occurred
+                    console.log(err)
+                })
             }
-            this.sendData(reqBody);
+            else{
+                this.sendDataHelper();
+            }     
         }   
+    },
+    sendDataHelper(){
+        let reqBody = {
+            name: this.name,
+            email: this.email,
+            message: this.message,
+            deleted: this.deleted
+        }
+        this.sendData(reqBody);
     },
     async sendData(reqBody){
         //Call POST API with the form data and show modal on Success

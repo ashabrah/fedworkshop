@@ -16,7 +16,7 @@
         <div class="line3"></div>
       </div>
     </nav>
-    <router-view/>
+    <router-view @updateshowmenu="updateShowMenu"/>
   </div>
 </template>
 <script>
@@ -25,6 +25,11 @@
     data: function () {
       return {
         showMenu: false
+      }
+    },
+    methods:{
+      updateShowMenu(status){
+        this.showMenu = status;
       }
     }
   }
@@ -108,6 +113,9 @@
   .modal-body{
     text-align: center;
     padding: 0;
+  }
+  .delete-modal-footer{
+    justify-content: flex-end !important;
   }
 
   @media screen and (max-width: 468px){
