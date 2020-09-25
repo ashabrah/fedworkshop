@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-3">
+  <div class="container mt-3" @click="$emit('updateshowmenu', false)">
     <h3 class="title">Contrived Form</h3>
     <b-form @submit="submitForm">
       <b-form-group label="Name" label-for="name">

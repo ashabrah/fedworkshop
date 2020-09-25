@@ -16,7 +16,7 @@
         <div class="line3"></div>
       </div>
     </nav>
-    <router-view/>
+    <router-view @updateshowmenu="updateShowMenu"/>
   </div>
 </template>
 <script>
@@ -25,6 +25,11 @@
     data: function () {
       return {
         showMenu: false
+      }
+    },
+    methods:{
+      updateShowMenu(status){
+        this.showMenu = status;
       }
     }
   }
