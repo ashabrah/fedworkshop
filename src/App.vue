@@ -142,6 +142,12 @@
     .nav-active{
       transform: translateY(5%);
     }
+    .delete-modal-header h5{
+      font-size: 17px;
+    }
+    .modal-body{
+      font-size: 16px;
+    }
   }
   .toggle .line1{
     transform: rotate(-45deg) translate(-5px,6px);
