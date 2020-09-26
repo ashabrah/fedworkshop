@@ -20,9 +20,9 @@ npm run build
 npm run lint
 ```
 
-### Hosted at
+### Hosted on Netlify
 ```
-https://zealous-heisenberg-308add.netlify.app/
+[FED workshop](https://zealous-heisenberg-308add.netlify.app/)
 ```
 
 ### Customize configuration
